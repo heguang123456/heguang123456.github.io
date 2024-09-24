@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-09-09T00:26:02.183Z</updated>
+  <updated>2024-09-24T02:30:41.398Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,19 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://example.com/2024/09/09/part1/"/>
-    <id>http://example.com/2024/09/09/part1/</id>
-    <published>2024-09-09T00:17:02.195Z</published>
-    <updated>2024-09-09T00:26:02.183Z</updated>
+    <title>测试文章</title>
+    <link href="http://example.com/2024/09/24/part1/"/>
+    <id>http://example.com/2024/09/24/part1/</id>
+    <published>2024-09-24T02:30:41.398Z</published>
+    <updated>2024-09-24T02:30:41.398Z</updated>
     
-    <content type="html"><![CDATA[<hr><h2 id="title-测试文章"><a href="#title-测试文章" class="headerlink" title="  title:测试文章"></a>  title:测试文章</h2><h1 id="这是一篇测试文章"><a href="#这是一篇测试文章" class="headerlink" title="这是一篇测试文章"></a>这是一篇测试文章</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="这是一篇测试文章"><a href="#这是一篇测试文章" class="headerlink" title="这是一篇测试文章"></a>这是一篇测试文章</h1>]]></content>
     
     
       
       
-    <summary type="html">&lt;hr&gt;
-&lt;h2 id=&quot;title-测试文章&quot;&gt;&lt;a href=&quot;#title-测试文章&quot; class=&quot;headerlink&quot; title=&quot;  title:测试文章&quot;&gt;&lt;/a&gt;  title:测试文章&lt;/h2&gt;&lt;h1 id=&quot;这是一篇测试文章&quot;&gt;&lt;a href=&quot;#这是一篇</summary>
+    <summary type="html">&lt;h1 id=&quot;这是一篇测试文章&quot;&gt;&lt;a href=&quot;#这是一篇测试文章&quot; class=&quot;headerlink&quot; title=&quot;这是一篇测试文章&quot;&gt;&lt;/a&gt;这是一篇测试文章&lt;/h1&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>博客维护</title>
+    <link href="http://example.com/2024/09/24/%E5%8D%9A%E5%AE%A2%E7%BB%B4%E6%8A%A4/"/>
+    <id>http://example.com/2024/09/24/%E5%8D%9A%E5%AE%A2%E7%BB%B4%E6%8A%A4/</id>
+    <published>2024-09-24T02:25:35.298Z</published>
+    <updated>2024-09-24T02:25:35.298Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="博客维护"><a href="#博客维护" class="headerlink" title="博客维护"></a>博客维护</h1><p><a href="https://www.cnblogs.com/yzhihao/p/6964208.html"><strong>Hexo 搭建博客 本地运行 常见报错及解决办法</strong></a></p><p>作为一名在hexo方面的新手，我在使用hexo编辑文档时遇到了很多问题，<code>hexo generate</code>编译的时候遇到了各种错误。</p><p>在此将这些错误及其解决方案记录下来，以便日后查证之用，同时，也可给各位在遇到类似问题时提供一点参考。</p><p>1.<strong>执行命令hexo server，提示：Usage: hexo …. 提示找不到该指令</strong></p><p>解决方法，在Hexo 3.0 后server被单独出来了，需要安装server，安装的命令如下：npm install hexo-server –save 安装此server后再试，问题解决。</p><p><strong><code>2.</code>执行：hexo server，启动了服务，在浏览器输入本地地址访问，看到白板和Cannot GET &#x2F; 几个字</strong></p><p><strong>方法一 有时无效</strong></p><p>原因是由于2.6以后就更新了，我们需要手动配置些东西，我们需要输入下面三行命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-ejs--save</span><br><span class="line"></span><br><span class="line">npm install hexo-renderer-stylus--save</span><br><span class="line"></span><br><span class="line">npm install hexo-renderer-marked--save</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><strong>方法二 亲测有效</strong></p><p>创建一个空文件夹，</p><p>依次执行如下命令就行：</p><p>npm install hexo-cli -g</p><p>hexo init projectName(你的项目文件名）</p><p>git clone 项目到空文件夹下（一定要先hexo init 再 git clone 项目）</p><p>cd projectName</p><p>npm install</p><p>hexo server</p><p><strong>3.localhost:4000 端口被占用，可执行 hexo s -p 5000 修改成5000 端口</strong></p><p><strong>4.YAMLException: end of the stream or a document separator is expected at line x, column y:</strong></p><h3 id="错误说明"><a href="#错误说明" class="headerlink" title="错误说明"></a><strong>错误说明</strong></h3><p>缺少分隔符，一般都是因为缺少空格</p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a><strong>解决方案</strong></h3><p>（1）出现这种情况，一般都是缺少空格，在<code>:</code>冒号之后要有空格！检查x行y列附近的冒号，其之后是否跟了空格。</p><p>（2）仔细检查<code>_config.yml</code>文件中所有冒号后面的空格，格式很严格，必须是只有一个，半角。不管是多了还是少了都会报错，这是yml解释器所定义的语法。如果不确定的话，将输入法调整到英文模式，删除所有冒号后面的空格重新输入，不要使用Tab。</p><p><strong>5.ValidationError: ‘null’ is not a string!</strong></p><h3 id="错误说明-1"><a href="#错误说明-1" class="headerlink" title="错误说明"></a><strong>错误说明</strong></h3><p>一般都是因为文章无内容，可能是因为在这篇博客文章中，有某些属性没有填写，比如author属性，tag属性，categories属性等，导致该属性是空的，即<code>null</code>，所以报错。</p><p>友情提示：如果你是用MarkdownPad 2来进行博文写作，可能在打开该md文件之后，对文件名进行了修改，导致出现了两篇文章。就会出现错误。</p><h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a><strong>解决方案</strong></h3><p>既然是属性缺失，那就把为空的那个属性给补上吧，仔细找找</p><p><strong>6.执行hexo g命令后，报错：<code>incomplete explicit mapping pair; a key node is missed</code></strong></p><p><strong>解决方案：</strong></p><p>主题目录下所有yml文件中所有有空格的字段都用双引号括起来，尤其注意languages下面的yml文件。</p><p>上传markdown文件至博客</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">清理项目缓存</span><br><span class="line">hexo clean</span><br><span class="line">重新生成博客</span><br><span class="line">hexo g</span><br><span class="line">将文件中的markdown文件转化为静态网页html文件</span><br><span class="line">hexo s</span><br><span class="line">部署到云端（github）</span><br><span class="line">hexo d</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="多端开发"><a href="#多端开发" class="headerlink" title="多端开发"></a>多端开发</h2><p><a href="https://github.com/naosense/naosense.github.io/discussions/9">一套全平台多端发布hexo博文的方法 · naosense naosense.github.io · Discussion #9</a></p><p><a href="https://cloud.tencent.com/developer/article/1365689">如何多端同步 Hexo 框架博客-腾讯云开发者社区-腾讯云</a></p><p><a href="https://blog.csdn.net/ch206265/article/details/103239545#:~:text=%E9%A6%96%E5%85%88%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93Hexo%E5%9C%A8%E6%9C%AC%E5%9C%B0%E5%92%8C%E5%9C%A8GitHub%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E6%98%AF%E4%B8%A4%E4%B8%AA%E4%B8%8D%E5%90%8C%E7%9A%84%E4%B8%9C%E8%A5%BF%E3%80%82%20%E6%9C%AC%E5%9C%B0%E7%9A%84%E4%B8%BB%E8%A6%81%E6%98%AF%E9%83%A8%E7%BD%B2%E6%96%87%E4%BB%B6%E5%8C%85%E6%8B%AC%E4%BA%86%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E7%AB%A0%E7%9A%84MarkDown%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%BB%E9%A2%98%E6%96%87%E4%BB%B6%E7%AD%89%E7%AD%89%EF%BC%9B%E4%B8%8A%E4%BC%A0%E5%88%B0GitHub%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E6%98%AF%E9%83%A8%E7%BD%B2%E6%96%87%E4%BB%B6%E6%B8%B2%E6%9F%93%E8%BF%87%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E6%9C%80%E7%BB%88%E8%AE%BF%E9%97%AEGitHubName.github.io%E7%9C%8B%E5%88%B0%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AB%99%E7%82%B9%E5%85%B6%E5%AE%9E%E5%B0%B1%E6%98%AF%E8%BF%99%E4%BA%9B%E4%BF%9D%E5%AD%98%E5%9C%A8GitHub%E4%B8%AD%E6%B8%B2%E6%9F%93%E8%BF%87%E7%9A%84%E4%B8%9C%E8%A5%BF%E3%80%82,%E6%83%B3%E8%A6%81%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%85%B3%E9%94%AE%E7%82%B9%E6%98%AF%E8%AE%A9%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E9%83%BD%E6%9C%89%E6%9C%80%E6%96%B0%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B9%9F%E5%B0%B1%E6%98%AF%E9%82%A3%E4%B8%AA%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%EF%BC%8C%E5%9B%A0%E6%AD%A4%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8git%E5%AE%9E%E7%8E%B0%E8%BF%99%E4%B8%80%E9%9C%80%E6%B1%82%E3%80%82%20%E5%A4%A7%E8%87%B4%E6%B5%81%E7%A8%8B%E6%98%AF%EF%BC%9A%20%E5%88%B0GitHubName.github.io%E8%BF%99%E4%B8%AA%E4%BB%93%E5%BA%93%EF%BC%8C%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF%E5%91%BD%E5%90%8D%E4%B8%BAhexo%EF%BC%88%E8%BF%99%E4%B8%AA%E6%96%B0%E5%BB%BA%E7%9A%84branch%E5%B0%B1%E6%98%AF%E4%B8%BA%E4%BA%86%E5%AD%98%E5%82%A8%E6%9C%AC%E5%9C%B0%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%87%E4%BB%B6%EF%BC%89%EF%BC%8C%E5%B9%B6%E5%B0%86%E6%96%B0%E5%BB%BA%E7%9A%84hexo%E5%88%86%E6%94%AF%E8%AE%BE%E7%BD%AE%E4%B8%BAdefault%E5%88%86%E6%94%AF%EF%BC%9B">利用GitHub实现Hexo博客的多端同步_hexo github 第二台电脑-CSDN博客</a></p><p><a href="https://www.jianshu.com/p/0b1fccce74e0"></a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;博客维护&quot;&gt;&lt;a href=&quot;#博客维护&quot; class=&quot;headerlink&quot; title=&quot;博客维护&quot;&gt;&lt;/a&gt;博客维护&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/yzhihao/p/6964208.html&quot;&gt;&lt;stro</summary>
       
     
     
