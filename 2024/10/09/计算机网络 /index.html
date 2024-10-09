@@ -1,0 +1,813 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>heguang_blog | heguang_blog</title><meta name="author" content="heguang123456"><meta name="copyright" content="heguang123456"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="计算机网络协议protocol，网络是虚拟的，分为发送端和接收端，数据在传输中需要遵守规则，这个规则即为协 议 ISO&#x2F;OSI 开放式系统互联理论模型(7层网络模型):International Organization for  Standardization &#x2F; Open System interconnection 分别有: 应用层(电商平台,社交平台,游戏)，表示层，会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="heguang_blog">
+<meta property="og:url" content="http://example.com/2024/10/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20/index.html">
+<meta property="og:site_name" content="heguang_blog">
+<meta property="og:description" content="计算机网络协议protocol，网络是虚拟的，分为发送端和接收端，数据在传输中需要遵守规则，这个规则即为协 议 ISO&#x2F;OSI 开放式系统互联理论模型(7层网络模型):International Organization for  Standardization &#x2F; Open System interconnection 分别有: 应用层(电商平台,社交平台,游戏)，表示层，会">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/android-chrome-512x512.png">
+<meta property="article:published_time" content="2024-10-09T02:13:08.532Z">
+<meta property="article:modified_time" content="2024-10-09T02:41:13.589Z">
+<meta property="article:author" content="heguang123456">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/android-chrome-512x512.png"><link rel="shortcut icon" href="/img/favicon%20copy.ico"><link rel="canonical" href="http://example.com/2024/10/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'heguang_blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-09 10:41:13'
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="heguang_blog" type="application/atom+xml">
+</head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="heguang_blog"><span class="site-name">heguang_blog</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-10-09T02:13:08.532Z" title="Created 2024-10-09 10:13:08">2024-10-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-10-09T02:41:13.589Z" title="Updated 2024-10-09 10:41:13">2024-10-09</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><p>协议protocol，网络是虚拟的，分为发送端和接收端，数据在传输中需要遵守规则，这个规则即为协 议</p>
+<p>ISO&#x2F;OSI 开放式系统互联理论模型(7层网络模型):International Organization for  Standardization &#x2F; Open System interconnection</p>
+<p>分别有:</p>
+<p><strong>应用层(电商平台,社交平台,游戏)，表示层，会话层，传输层，网络层，数据链路层，物理层</strong>。</p>
+<p>应用层(Application layer):专注于为用户提供功能，如域名有FTP，HTTP，HTTPS，DNS，DHCP，Telnet，Smtp，SSH。应用层是工作在操作系统中的用户态，传输层及以下则工作在内核态。</p>
+<ul>
+<li><p>80http,443https(s为SSL加密): 域名(网址):浏览器应用的协议</p>
+<p>  21FTP(File transform protocol):文件传输协议 负责文件传输</p>
+<p>  53DNS:域名解析协议，将网址解析给IP地址</p>
+<p>  68DHCP:动态获取网络地址，自动分配IP地址，IP地址即设备在网络中的唯一地址</p>
+<p>  23Telnet: </p>
+<p>  25Smtp: </p>
+<p>  22SSH:</p>
+</li>
+</ul>
+<p>表示层:数据加解密(保证数据传输的安全性)，数据解压缩(保证数据传输高效不会丢失)，图片&#x2F;视频编解码(解码译码方式) </p>
+<p>会话层:sesstion会话管理(页面跳转保证登陆在线)，服务器验证用户登录，断点续传</p>
+<p>传输层:TCP，UDP，线程，端口，socket</p>
+<ul>
+<li><p>socket(套接字)是通信的基石，是支持TCP&#x2F;IP协议的网络通信的基本操作单元，包含进行网络通信必须的五种信息：连接使用的协议，本地主机的IP地址，本地进程的协议端口，远地主机的IP地址，远地进程的协议端口</p>
+<p>  TCP传输控 制协议，提供一种面向连接的、可靠的、基于字节流的传输层通信协议，有流量控制和差错控制，使用TCP协议的应用比如邮件的接收和发送、文件传输、远程登录。</p>
+<p>  需要数据稳定和完整性比较高的场景多使用TCP协议。</p>
+<p>  UDP用户数据报协议，提供一种无连接的、高效率、低可靠性的数据传输服务，使用UDP协议的应用比如音视频聊天、在线游戏王者荣耀、工业物联网数据传输等。需要数据时效性比较高的场景多使用UDP协议。</p>
+</li>
+</ul>
+<p>网络层: IP地址(IPV4，IPV6)，ARP(路由器使用,可跨路由器交换数据)，RARP</p>
+<p>数据链路层: 有线网卡(MAC地址全球唯一)，交换机(根据MAC地址交换数据)</p>
+<p>物理层:网线和光缆</p>
+<p>TCP&#x2F;IP 事实标准网络模型:Trasform control 应用层，传输层，网络层，物理层 </p>
+<p>C&#x2F;S架构Client&#x2F;Server客户服务端(任意协议) )，B&#x2F;S架构(Browser&#x2F;Server浏览器服务端):</p>
+<ul>
+<li><p>实现服务端的流程:<br>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/2fe816aa-9f39-4186-96a6-41769548ed3a.png" alt="截屏2024-06-04 20.33.49.png"></p>
+<ul>
+<li><p>关于网络字节序</p>
+<p>  网络字节序是一种标准的数据表示方式，用于在计算机网络中传输数据。它是一种大端字节序，即高位字节存放在低地址处，低位字节存放在高地址处。与之相对的是主机字节序，它是指CPU本身使用的数据表示方式。在不同的CPU架构上，主机字节序可能是大端字节序或小端字节序。为了在网络上传输数据时能够正确解析，发送方需要将数据转换成网络字节序，接收方收到数据后再将其转换成主机字节序。在C语言中，可以使用htons、htonl、ntohs、ntohl等函数实现字节序转换。</p>
+</li>
+</ul>
+</li>
+<li><p>UDP具体实现流程</p>
+<ul>
+<li>加载库</li>
+</ul>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">WORD version = <span class="built_in">MAKEWORD</span>(<span class="number">2</span>, <span class="number">2</span>);<span class="comment">//它用于初始化 Winsock 库的版本号，使程序使用网络功能</span></span><br><span class="line">WSADATA data = &#123;&#125;;<span class="comment">//初始化WSADATA结构体里的所有变量</span></span><br><span class="line"><span class="type">int</span> err = <span class="built_in">WSAStartup</span>(version, &amp;data);<span class="comment">//初始化Winsock的使用环境,version参数指定Winsock版本，data指针存储Winsock的实现细节和启动信息</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> != err) &#123;<span class="comment">//发生错误</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;WSAStartup fail&quot;</span> &lt;&lt; endl;<span class="comment">//调用WASGetLastError()获取具体的错误码</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>校验加载的版本是否正确</li>
+</ul>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="number">2</span> != <span class="built_in">HIBYTE</span>(data.wVersion) || <span class="number">2</span> != <span class="built_in">LOBYTE</span>(data.wVersion)) &#123;</span><br><span class="line">		 <span class="comment">//HIBYTE和LOBYTE获取WORD类型变量的高8位和低8位字节</span></span><br><span class="line">       cout &lt;&lt; <span class="string">&quot;WSAStartup fail&quot;</span> &lt;&lt; endl;</span><br><span class="line">       <span class="comment">//检测Winsock库版本是否符合要求</span></span><br><span class="line">       <span class="built_in">WSACleanup</span>();</span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       cout &lt;&lt; <span class="string">&quot;WSAStartup success&quot;</span> &lt;&lt; endl;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建socket（ip地址类型，协议使用的数据格式，通信使用的协议）</li>
+</ul>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SOCKET sock = <span class="built_in">socket</span>(AF_INET<span class="comment">/*IPv4地址族*/</span>, SOCK_DGRAM<span class="comment">/*套接字类型*/</span>,</span><br><span class="line"> IPPROTO_UDP<span class="comment">/*UDP协议*/</span>);<span class="comment">//创建UDP套接字</span></span><br><span class="line">   <span class="keyword">if</span> (INVAILD_SOCKET == sock) &#123;</span><br><span class="line">       cout &lt;&lt; <span class="string">&quot;socket fail:&quot;</span> &lt;&lt; <span class="built_in">WSAGetLastError</span>() &lt;&lt; endl;</span><br><span class="line">       <span class="comment">//创建成功，返回一个SOCKET类型的套接字描述符，否则返回INVAILD_SOCKET</span></span><br><span class="line">       <span class="built_in">WSACleanup</span>();<span class="comment">//卸载库</span></span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       cout &lt;&lt; <span class="string">&quot;socket success&quot;</span> &lt;&lt; endl;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>sockaddr_in是一个结构体，是用于存储IP地址和端口号的结构体类型</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">sockaddr_in</span> &#123;</span><br><span class="line">    <span class="type">short</span> <span class="type">int</span> sin_family;       <span class="comment">//地址族（Address Family），也就是IP地址类型，一般设置为AF_INET</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">short</span> <span class="type">int</span> sin_port;<span class="comment">//16位TCP/UDP端口号，需要使用htons()进行字节序转换</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">in_addr</span> sin_addr;    <span class="comment">//32位IP地址，需要使用inet_addr()进行转换，或者直接赋值为ADDR_ANY</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> sin_zero;  <span class="comment">//填充0，使sockaddr_in和sockaddr具有相同的长度</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绑定ip和端口号（告诉操作系统这个应用进程使用的哪个端口号和哪个ip）</p>
+</li>
+</ul>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">sockaddr_in addrServer;</span><br><span class="line"> addrServer.sin_family = AF_INET;<span class="comment">//将sin_family设置为IPv4地址</span></span><br><span class="line"> addrServer.sin_port = <span class="built_in">htons</span>(<span class="number">2233</span>);         <span class="comment">//将主机字节序转换成网络字节序(大端小端)</span></span><br><span class="line"> addrServer.sin_addr.S_un.S_addr = ADDR_ANY;<span class="comment">//接收所有的ip地址</span></span><br><span class="line"> <span class="comment">//如果使用特定的ip地址，可以使用inet_addr()函数将字符串类型的IP地址转换成32位的整数</span></span><br><span class="line"> <span class="comment">//IP地址有两种类型，十进制四等分字符类型&quot;192.168.3.222&quot;</span></span><br><span class="line"> <span class="comment">//ulong类型</span></span><br><span class="line"> err = <span class="built_in">bind</span>(sock<span class="comment">/*要绑定的socket*/</span>, (sockaddr *) &amp;addrServer<span class="comment">/*指向结构体addrServer的指针，该结构体包含要绑定的地址*/</span>, </span><br><span class="line"> <span class="comment">/*结构体addrServr的大小*/</span><span class="built_in">sizeof</span>(addrServer));<span class="comment">//将一个socket与一个本地地址绑定</span></span><br><span class="line"> <span class="keyword">if</span> (SOCKET_ERROR == err) &#123;</span><br><span class="line">     cout &lt;&lt; <span class="string">&quot;bind fail:&quot;</span> &lt;&lt; <span class="built_in">WSAGetLastError</span>() &lt;&lt; endl;</span><br><span class="line">     <span class="comment">//绑定失败，输出错误信息并关闭套接字，释放资源；</span></span><br><span class="line">     <span class="comment">//关闭套接字</span></span><br><span class="line">     <span class="built_in">closesocket</span>(sock);</span><br><span class="line">     <span class="comment">//卸载库</span></span><br><span class="line">     <span class="built_in">WSACleanup</span>();</span><br><span class="line">     <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment">//如果调用成功，则输出绑定成功的提示信息</span></span><br><span class="line">     cout &lt;&lt; <span class="string">&quot;bind success&quot;</span> &lt;&lt; endl;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>接收数据与发送数据</li>
+</ul>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过Socket发送给Servr。在Servr端，需要通过读取Socket接收客户端发送的数据，</span></span><br><span class="line"><span class="comment">//并进行处理。处理完成后，Servr可以通过Socket发送回应数据给客户端。</span></span><br><span class="line"> <span class="type">int</span> nRecvNum = <span class="number">0</span>;</span><br><span class="line">   <span class="type">int</span> nSendNum = <span class="number">0</span>;</span><br><span class="line">   <span class="type">char</span> recvBuf[<span class="number">1024</span>] = <span class="string">&quot;&quot;</span>;</span><br><span class="line">   <span class="type">char</span> sendBuf[<span class="number">1024</span>] = <span class="string">&quot;&quot;</span>;</span><br><span class="line">   sockaddr_in addrClient = &#123;&#125;;<span class="comment">//初始化addrClient结构体变量的成员</span></span><br><span class="line">   <span class="type">int</span> size = <span class="built_in">sizeof</span>(addrClient);<span class="comment">//获取addrClient的大小</span></span><br><span class="line">   <span class="type">char</span> ip[<span class="number">20</span>] = <span class="string">&quot;&quot;</span>;</span><br><span class="line">   <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">	    <span class="comment">//recvfrom()函数从指定的套接字(socekt)接收数据，</span></span><br><span class="line">	    <span class="comment">//接收到的数据被存储到recvBuf中，缓冲区的大小为sizeof(recvBuf)，获取发送方的IP地址和端口号</span></span><br><span class="line">	    <span class="comment">//这些信息会被存储在sockaddr_in类型的addrClient变量中，最后这个函数返回接收到的数据的字节数</span></span><br><span class="line">	    nRecvNum = <span class="built_in">recvfrom</span>(sock, recvBuf, <span class="built_in">sizeof</span>(recvBuf), <span class="number">0</span>, (sockaddr *) &amp;addrClient, &amp;size);</span><br><span class="line">       <span class="keyword">if</span> (nRecvNum &gt; <span class="number">0</span>) &#123;</span><br><span class="line">           <span class="comment">//接收成功,打印接收到的数据</span></span><br><span class="line">           <span class="comment">// 把ulong类型的ip转换成字符串类型的ip</span></span><br><span class="line">           <span class="built_in">inet_ntop</span>(AF_INET<span class="comment">/*地址族ipv4或ipv6*/</span>, (<span class="type">void</span> *) &amp;addrClient.sin_addr.S_un.S_addr<span class="comment">/*一个指向IP地址的指针*/</span>,</span><br><span class="line">            ip<span class="comment">/*指向存储转换结果的缓冲区的指针*/</span>, <span class="built_in">sizeof</span>(ip)<span class="comment">/*缓冲区的大小*/</span>);</span><br><span class="line">           <span class="comment">//inet_ntop将ip地址从二进制转换为文本</span></span><br><span class="line">           cout &lt;&lt; ip &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; recvBuf &lt;&lt; endl;</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">0</span> == nRecvNum) &#123;</span><br><span class="line">           <span class="comment">//连接断开</span></span><br><span class="line">           cout &lt;&lt; <span class="string">&quot;connection closed&quot;</span> &lt;&lt; endl;</span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="comment">//接收失败</span></span><br><span class="line">           cout &lt;&lt; <span class="string">&quot;recvfrom fail:&quot;</span> &lt;&lt; <span class="built_in">WSAGetLastError</span>() &lt;&lt; endl;</span><br><span class="line">           <span class="comment">//发送错误信息并退出</span></span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">//5、发送数据</span></span><br><span class="line">       <span class="built_in">gets</span>(sendBuf);<span class="comment">//客户端输入数据，服务端显示数据</span></span><br><span class="line">       nSendNum = <span class="built_in">sendto</span>(sock<span class="comment">/*套接字描述符*/</span>, sendBuf<span class="comment">/*发送的数据缓冲区*/</span>, </span><br><span class="line">       <span class="built_in">sizeof</span>(sendBuf)<span class="comment">/*缓冲区大小*/</span>, <span class="number">0</span><span class="comment">/*一般不需要设置*/</span>, </span><br><span class="line">       (sockaddr *) &amp;addrClient<span class="comment">/*目标地址*/</span>, size<span class="comment">/*地址长度*/</span>);</span><br><span class="line">       <span class="keyword">if</span> (SOCKET_ERROR == nSendNum) &#123;<span class="comment">//nSendNum实际发送的字节数，出现错误了</span></span><br><span class="line">           cout &lt;&lt; <span class="string">&quot;sendto fail:&quot;</span> &lt;&lt; <span class="built_in">WSAGetLastError</span>() &lt;&lt; endl;<span class="comment">//发送错误信息</span></span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>测试:</p>
+<p>1、打开服务器</p>
+<p>2、打开客户端</p>
+<p>3、客户端先输入数据，回车</p>
+<p>——结果在服务端显示客户端刚刚输入的数据</p>
+<p>4、在服务端输入数据，回车</p>
+<p>——在客户端显示刚刚输入的数据</p>
+<p>注意:客户端先发送</p>
+<p>发送的时候写明ip地址（只有一个，不能写任意和端口号） </p>
+<p>ip决定发送给哪台设备，端口号决定发送给哪个应用</p>
+<p>ip地址总改变：DHCP协议能在局域网内动态分配ip地址。私人网络固定位置ip地址，重复概率高，因此需要私人ip地址管理；公共网络人多IP率极低。</p>
+<p>为什么客户地址不需要绑定ip地址和端口号: 首先，若客户端没有绑定，操作系统会自动分配(DHCP协议)</p>
+<p>两个网卡在同时工作，自动连接时可能出问题：既连接了WIFI又连接有线网卡，客户端与服务端的端口号必须不同</p>
+<ul>
+<li><p>数据包在传输过程中的变化过程</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-07_11.40.26.png" alt="截屏2024-06-07 11.40.26.png"></p>
+<ul>
+<li>应用层负责原数据与用户数据的管理</li>
+<li>UDP协议: 基于报文段传输，传输UDP数据包 ，以便于网络层将其传输到目标主机。传输层协议还可以通过端口号标识不同的应用程序，以便于网络层将数据传输到正确的应用程序。检查UDP头</li>
+<li>ip数据报: 从哪个设备来到哪个设备去，传输ip数据包，它能够使得不同计算机之间通过互联网实现通信，检查IP头</li>
+<li>帧: 解析出来目的mac是否本设备mac、将ip数据包网上传递,加入帧头与CRC校验</li>
+<li>从上到下“层层加码”，从下往上“层层解码”，实现数据包的传输</li>
+</ul>
+</li>
+<li><p>单播、组播和广播</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-07_13.14.10.png" alt="截屏2024-06-07 13.14.10.png"></p>
+<ol>
+<li><p>单播(unicast)：在数据传输中，IP协议下的TCP&#x2F;IP模型。针对单一的目标接受者(一对一)，通信方式效率高，定向发送到特定的网络地址或设备。如电子邮件、Web浏览、文件传输等。</p>
+<ol>
+<li>特点：<ol>
+<li><strong>目标明确</strong>：发送者知道确切的接收者地址，数据包不会广播出去。</li>
+<li><strong>带宽效率</strong>：由于只发送一次，网络资源不会被无效的数据包占用。</li>
+<li><strong>安全性</strong>：提高了信息的保密性，因为数据只能由特定接收者解密和访问。</li>
+<li><strong>延迟较低</strong>：相比广播或多播，单播的传输延迟通常更小。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>组播(multicast): 是一种在计算机网络中高效传输数据的技术，特别适用于需要将信息发送给多个接收者的情况，而不仅仅是一个一对一的通信。在组播中，数据包只发送一次，但它会被网络中的所有预定义的接收者节点接收，这样就节省了带宽资源，提高了通信效率。类比微信群聊</p>
+<ol>
+<li>使用场景:<ol>
+<li>IP组播：IP协议支持的组播，允许数据流定向到一组网络地址，而不是每个单个地址。</li>
+<li>RTP（Real-Time Transport Protocol）组播：常用于视频会议、网络直播等实时应用，多个接收者共享同一流媒体源。</li>
+<li>DNS查询：DNS服务器使用组播来回应多个请求。</li>
+<li>PIM（Protocol Independent Multicast）协议：用于建立和维护组播树，确保高效的数据转发。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>广播(boardcast)：在数据传输中主要用于在一个网络段内的所有设备之间发送消息。它是一种单向通信，信息会从发送者直接发送到网络中的每一个节点，而不仅仅是目标节点。</p>
+<ol>
+<li><p>使用场景：</p>
+<ol>
+<li><strong>信息通知</strong>：当有紧急或通用的信息需要传达给所有连接的设备时，如系统更新、广播寻址等。</li>
+<li><strong>设备发现</strong>：在局域网（LAN）中，新加入的设备可能会使用广播来寻找网络配置信息，如IP地址分配。</li>
+<li><strong>组播（Multicast）的前奏</strong>：虽然组播是更为精确的一种发送方式，但广播经常作为其发现和初始连接的一部分。</li>
+</ol>
+</li>
+<li><p>缺点:</p>
+<p> 比如可能导致网络拥塞，因为每个节点都会接收到消息，且没有路由选择，消息可能会无限传播。因此，在现代网络设计中，广播通常被限制在本地网络中，并且通过VLAN（虚拟局域网）或者子网划分来控制其范围，以减少对全局网络的影响。</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>ARP协议</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-07_13.19.24.png" alt="截屏2024-06-07 13.19.24.png"></p>
+<ul>
+<li>ARP（Address Resolution Protocol）是网络层的一个TCP&#x2F;IP协议，主要用于将IP地址映射到物理MAC地址上。在一个IPv4网络中，当数据包在网络中传输时，每个设备需要知道发送或接收数据的其他设备的MAC地址才能实际通信。</li>
+<li>已知目的ip地址不知道目的mac地址，无法发送信息，此时，使用ARP协议获取目的mac。<ul>
+<li><p>工作原理:</p>
+<ol>
+<li><strong>请求-响应模式</strong>：当一个设备需要了解某个IP地址对应的MAC地址时，它会发送一个ARP请求广播到网络中。这个请求包含目标IP和发送者的MAC地址。</li>
+<li><strong>目标设备回应</strong>：拥有目标IP地址的设备接收到请求后，如果它是目标，就会回复一个ARP响应，其中包含了它的MAC地址和目标的IP地址。</li>
+<li><strong>缓存更新</strong>：发送者收到响应后，会将目标的IP到MAC的映射添加到自己的ARP缓存中，以便后续快速查找.</li>
+</ol>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-07_15.21.37.png" alt="截屏2024-06-07 15.21.37.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ARP代理</p>
+<ul>
+<li><p>ARP（Address Resolution Protocol）代理是一种网络技术，它主要用于简化局域网内的地址解析过程。在传统的ARP协议中，当一个设备需要发送数据包到另一个设备时，它会先查找目标设备的IP地址对应的物理地址（MAC地址），这个过程是单对单的。然而，如果有多台设备共享同一个网络，并且这些设备都需要通过代理进行通信，那么ARP代理就会介入。</p>
+</li>
+<li><p>主要作用:</p>
+<ol>
+<li><strong>集中管理</strong>: 代理服务器存储了网络中的IP-MAC映射关系，所有设备的请求都发送给代理，代理再将正确的MAC地址返回给请求者，减少了设备之间的直接通信。</li>
+<li><strong>安全性</strong>: 代理可以防止未经授权的ARP欺骗攻击，因为它控制着网络上ARP表项的更新，确保信息的准确性和完整性。</li>
+<li><strong>负载均衡和扩展性</strong>: 对于大型网络，通过ARP代理，可以将ARP查询的负担分散到多个服务器，提高网络性能并支持更多的设备接入。</li>
+<li><strong>易于管理</strong>: 代理提供了集中化的网络配置和审计功能，管理员可以通过代理对整个网络的地址解析进行统一管理和监控。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>免费ARP</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-07_15.30.42.png" alt="截屏2024-06-07 15.30.42.png"></p>
+<ul>
+<li>免费ARP（ gratuitous ARP ），也称为 Gratuitous Address Resolution Protocol，是一种主动的协议行为，主要用于在网络中更新或确认网络设备的IP地址和MAC地址映射关系。当一台设备更改了它的IP地址，或者刚连接到网络时，为了确保其他设备能够正确地找到它的物理位置，这台设备会发送一个免费ARP请求。老化机制: 长时间无用数据会被删除，可重新通过ARP协议获取mac地址</li>
+<li>工作原理:<ol>
+<li><strong>地址更改后的通告</strong>：如果一个设备更换了IP地址，它会发送一个免费ARP包，包含新的IP地址，询问是否有其他设备已经分配了相同的地址。</li>
+<li><strong>初始化网络连接</strong>：新连接的设备在首次接入网络时，也会发送免费ARP，告知其他设备它现在占用的IP地址。</li>
+<li><strong>冲突检测</strong>：当多个设备尝试用同一IP地址进行通信时，可能会收到多个免费ARP响应，这时可以通过对比MAC地址确认哪台设备是真正的所有者。</li>
+</ol>
+</li>
+<li>作用:<ul>
+<li>免费ARP对于网络中的IP地址冲突检测、负载均衡以及故障排查非常有用，它有助维护网络中IP地址与物理地址的一致性。不过，由于其主动发送，如果不加以控制，可能会造成网络流量的增加。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>DNS协议</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-07_15.30.15.png" alt="截屏2024-06-07 15.30.15.png"></p>
+<p>  域名解析（Domain Name Resolution, DNS）是互联网中一项基本的服务，它将人类可读的域名（如 <a target="_blank" rel="noopener" href="http://google.com/">google.com</a>）转换成计算机能够理解的IP地址（如172.217.167.168）。当我们在浏览器中输入一个网址，DNS服务器扮演着关键角色，它负责查找并提供相应的IP地址，使得我们的请求能够准确地找到对应的网站服务器。</p>
+<ul>
+<li>工作原理<ol>
+<li>用户设备向本地的DNS缓存（可能在路由器或操作系统中）发送查询。</li>
+<li>如果缓存中有该域名的记录，直接返回IP地址。</li>
+<li>如果没有，查询会发送到根DNS服务器，请求获取顶级域名（.com、.org等）的授权服务器列表。</li>
+<li>接下来，查询会递归地发送给权威域名服务器，直到找到正确的服务器，并获取到所需的IP地址。</li>
+<li>最终，IP地址被返回给用户设备，连接过程开始。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>路由数据转发过程</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-07_17.52.57.png" alt="截屏2024-06-07 17.52.57.png"></p>
+<p>  路由数据转发是网络通信中的关键机制，它确保数据包从源地址到目标地址的高效传输。在路由器中，这个过程主要包括以下几个步骤：</p>
+<ol>
+<li><p><strong>接收到数据包</strong>：路由器在数据链路层接收到一个数据包，通常包含源IP地址和目标IP地址。R1端口1接收</p>
+<p> <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-07_17.59.42.png" alt="截屏2024-06-07 17.59.42.png"></p>
+</li>
+<li><p><strong>检查目的地址</strong>：路由器会解析数据包的IP头部，查看目标IP地址是否与自身的路由表相符。如果目的地是本地接口或已知的下一个路由器，就直接转发。R2端口2转发</p>
+</li>
+<li><p><strong>查找路由表</strong>：如果目标地址不在本地路由表中，路由器会根据路由协议（如OSPF、BGP等）查找最佳路径。路由表定义了网络拓扑结构和下一跳地址。</p>
+</li>
+<li><p><strong>选择路径</strong>：路由器会基于诸如带宽、延迟、可靠性等因素计算出一条最优的路径，通常是距离最短或成本最低的路径。</p>
+</li>
+<li><p><strong>更新数据包头部</strong>：路由器会在数据包头部插入新的下一跳IP地址，并可能改变TTL（Time to Live，生存时间）字段，以防止无限循环转发。下一跳mac地址</p>
+</li>
+<li><p><strong>转发数据包</strong>：路由器将修改后的数据包发送到下一跳地址，这个过程可能需要通过多个路由器的接力传递。</p>
+</li>
+<li><p><strong>递归转发</strong>：如果数据包最终到达的是另一个网络，这个过程可能会重复，直到数据包达到目标网络。</p>
+</li>
+<li><p><strong>交付到目的地</strong>：数据包最终被目标设备（可能是另一台路由器或终端设备）接收，然后通过IP分片和重组返回给上层应用程序。</p>
+</li>
+<li><p>交换器不能转发（数据链路，物理），路由器（数据链路，物理，网络）可以转发：ip地址不变，mac地址在变。交换机只有mac地址。</p>
+</li>
+</ol>
+</li>
+<li><p>TCP协议特点</p>
+<p>  可靠的，面向连接的，基于字节流的</p>
+</li>
+<li><p>ip协议格式</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-07_18.06.52.png" alt="截屏2024-06-07 18.06.52.png"></p>
+<p>  固定部分: 32位字节，一行为4字节，共五行；即ip头总长度为20~60，剩下40为可变部分，存放数据应为4的倍数，溢出应填满，必须占满4字节倍数的空间；如WIFI密码的存放。</p>
+<p>  版号表示IPV4与IPV6的不同；首部长度为表示的是ip头长度；总长度即数据部分的长度；标识即事件同时触发的事件处理顺序；标志+片偏移，偏移保证数据部分在分成多段部分仍能按照原有数据的顺序合成后数据的完整性</p>
+<p>  UDP特点总结：</p>
+<p>  1、面向非连接，接收数据的时候。一个socket可以接受任意客户端发回来的数据，可以是一对一，可以是一对多（广播）</p>
+<p>  2、通讯方式：数据报文的通讯方式，数据包不可拆分</p>
+<p>  3、传输效率高（跟TCP对比）</p>
+<p>  4、会产生丢包，没有校验检查，会出现乱序</p>
+<p>  练习题</p>
+<ol>
+<li>210.33.5.68&amp;255.255.255.218 &#x3D; 210.33.5.0</li>
+<li>子网1:20.0.0.0 子网2:20.0.1.0 ……子网63:20.0.63.0 有效主机位8位，2位主机位，6位计算</li>
+<li>每个网络8个主机位，用3位表示五个子网，剩下5位网络号分配给子网的主机，新子网掩码位255.255.255.224，后3位替代为110 1111</li>
+</ol>
+<p>  子网1:211.168.10.1～211.168.10.31；子网2为211.168.10.32～211.168.10.63；子网3为211.168.10.64<del>211.168.10.95;子网4为211.168.10.96</del>211.168.10.127;子网5为211.168.10.128~159</p>
+<ol>
+<li><p>ip地址为10.100.122.38，子网掩码为255.255.248.0；网络部分占24，主机占8，划分出2^13，255有8个+248的5个，每个子网除广播地址和网络地址外有2^11个地址，</p>
+<p> 前1个: 10.0.0.0~10.0.0.255.        网关:    10.100.12.1           广播:10.100.12.255.</p>
+<p> 前2个: 10.0.8.0.~10.0.8.255. 网关:    10.100.16.1           广播:10.100.16.255</p>
+<p> 前3个:10.0.16.0~10.0.16.255网关:        10.100.20.1           广播:10.100.20.255</p>
+<p> 后1个: 10.245.255.0~10.245.255.255;网关:           10.100.224.1    广播: 10.100.224.255 </p>
+<p> 后2个: 10.243.255.0~10.243.255.255网关:     10.100.232.1          广播:10.100.232.255</p>
+<p> 后3个10.255.255.0~10.255.255.255网关:   10.100.240.1           广播:10.100.240.255</p>
+<ul>
+<li><p>服务端与客户端编写流程</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-12_12.44.22.png" alt="截屏2024-06-12 12.44.22.png"></p>
+<ul>
+<li>客户端发送链接，服务端接受链接，服务端通过监听接受链接，然后服务端发送数据，客户端接受数据，服务端</li>
+</ul>
+<p>  打印出客户端的IP才是连接成功<br>  需要创建出两个SOCKET，第一个sock用来接收链接，第二个sockListen用来收发数据，第一个sock用于获取IP和端口号，socket即通信单位。<br>  接收链接说明accept是阻塞函数，此时程序属于等待链接的状态，连接成功后才能接收数据</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>ip地址分类</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-13_154538.png" alt="屏幕截图 2024-06-13 154538.png"></p>
+<p>  ipv4地址类型如图：127.255.255.255为十进制四等分的ip地址，每一段转换为二进制数字占8位，所以范围为0~255。通过ip分类可得不同作用的ip，可记忆ip开头处区分：A为1.0.0.0（0000 0001）；B为128.0.0.0（1000 0001）；C类为192.0.0.0（1100 0000）；D类为224.0.0.0（1110 0000）；E类为240.0.0.0（1111 0000）。常见出题为ABC类</p>
+<p>  家里的ip地址一般为C类，A类的公网一般用作服务器，127.0.0.0~127.255.255.255均可用作回环测试（即自己主机为服务器同时为客户端）</p>
+<p>  IPv4地址通常有32位，分为网络地址（前24位）和主机地址（后8位）</p>
+</li>
+<li><p>子网掩码</p>
+<p>  子网：它将一个大的IP地址空间划分为多个较小的、更易于管理和使用的部分。目的是避免IP地址的浪费，提高网络效率，控制广播域，并实现网络的层次结构设计，使得大型网络能够被组织成易于管理的层级。</p>
+<p>  子网掩码：每个子网都有一个对应的子网掩码，它可以用来识别网络部分和主机部分。通过与IP地址进行按位与操作，可以确定一个IP地址是属于哪个子网。</p>
+<p>  所有设备需要通过IP地址与其他子网的设备进行通信，需要先发送给路由器，然后由路由器转发，其他设备通过路由器所查看到的该设备的ip地址并非该设备的原IP地址，而是IP地址与</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-13_161026.png" alt="屏幕截图 2024-06-13 161026.png"></p>
+<p>  网络号+主机号&#x3D;&#x3D;主机的网络地址（对外的IP地址）主机号会被隐藏，网络号&#x3D;&#x3D;子网掩码按位&amp;原IP地址。如判断双方是否处于同一子网下，只需计算出双方的网络地址比对，如果相同，则同于同一子网，反之，不在同一子网内。</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-13_162633.png" alt="屏幕截图 2024-06-13 162633.png"></p>
+</li>
+</ul>
+<p>记忆技巧：A类1个255，B类2个255，C类3个255</p>
+<p>网络地址用于区分不同网络，而主机地址则用于识别同一网络内的设备。这种连续的“1”的设置确保了网络寻址的效率和层次结构，使得路由器能够正确地路由数据包到相应的网络。</p>
+<p>不同的IP地址分类可得不同的默认子网掩码，然后进行计算网络地址</p>
+<ul>
+<li><p>网关</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-13_163804.png" alt="屏幕截图 2024-06-13 163804.png"></p>
+<p>  主机号为0的IP地址即网关，由图中看出此时的IP地址已被网关占用，无法被分配。</p>
+<ul>
+<li>网关功能<ol>
+<li><strong>地址转换</strong>：网关可以帮助内部网络的设备使用私有IP地址与外部网络通信，通过NAT技术（网络地址转换）隐藏了内部网络的结构和IP地址。</li>
+<li><strong>安全过滤</strong>：网关可以提供防火墙功能，阻止未经授权的访问和恶意流量。</li>
+<li><strong>协议转换</strong>：对于不同协议的网络设备，网关可能需要进行协议转换，例如从TCP&#x2F;IP转换到PPP或者从IPX&#x2F;SPX到TCP&#x2F;IP。</li>
+<li><strong>路由选择</strong>：网关能够根据配置进行路由决策，选择最优路径将数据发送到目的地。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>广播地址</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-13_165439.png" alt="屏幕截图 2024-06-13 165439.png"></p>
+<p>  主机号全0为网关地址，主机号全1为直接广播地址</p>
+<p>  有限广播应用：红蜘蛛直播，组播，设备发现</p>
+<p>  有限广播和直接广播的区别： </p>
+<p>  作用域不同：直接广播的广播域可以是不同（指定）的广播地址，有限广播的广播域只能是本网广播的广播地址</p>
+<p>  二进制位数不同：直接广播的广播地址是主机号全为1，有限广播的广播地址指的是32为全为1</p>
+<ul>
+<li><p>非默认子网掩码</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-13_171229.png" alt="屏幕截图 2024-06-13 171229.png"></p>
+<p>  比默认子网掩码的1位数多，如图</p>
+</li>
+<li><p>子网划分常见问题（做题转换）</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-13_171848.png" alt="屏幕截图 2024-06-13 171848.png"></p>
+</li>
+<li><p>以太网帧结构</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-13_175543.png" alt="屏幕截图 2024-06-13 175543.png"></p>
+<p>  MTU：一个网络包的最大长度，以太网中一般为1500字节</p>
+<p>  MSS：除去IP和TCP头部之后，一个网络包所能容纳的TCP数据的最大长度</p>
+</li>
+</ul>
+<p>  TCP协议使用的是send和recv收发数据</p>
+<p>  UDP协议使用的是sendto和recvfrom收发数据</p>
+<p>  TCP三次握手原则</p>
+</li>
+<li><p>发广播</p>
+<p>  只有UDP才能发广播，把发送地址填直接广播地址即自己的IPV4地址。有限广播地址即255.255.255.255。有限广播需要申请广播权限setsockopt()。多网卡情况下，有限广播地址无法确保是所需地址发送，如果想精确某个局域网内地址，可以先关闭WIFI的链接（只适用于课程教学的临时解决方案）</p>
+</li>
+<li><p>阻塞和非阻塞</p>
+<p>  socket默认是阻塞的，导致接收和发送也是阻塞的。</p>
+<ul>
+<li><p>非阻塞：</p>
+<ol start="2">
+<li>相比之下，非阻塞I&#x2F;O允许线程在发起I&#x2F;O请求后不立即等待结果，而是立即返回，然后继续执行其他任务。如果I&#x2F;O尚未完成，线程会立即返回并设置一个标志或事件，表示可以稍后再检查结果。这样可以避免线程阻塞，提高系统的并发性能和响应速度。</li>
+</ol>
+</li>
+<li><p>阻塞：</p>
+<ol>
+<li>当一个线程执行I&#x2F;O操作（如读取或写入文件、网络套接字等）时，如果数据不可用，该线程会暂时停止执行（即“阻塞”），直到数据准备好或操作完成。这意味着在等待期间，其他任务无法继续运行，可能会导致系统性能下降，特别是当大量线程同时等待同一资源时。</li>
+</ol>
+</li>
+</ul>
+<p>  接收</p>
+<p>  阻塞：事件发生立刻知道，因为事件挂起了，所以阻塞过程中不消耗CPU</p>
+<p>  非阻塞：不能第一时间发现事件发生，非阻塞的过程中一直消耗CPU</p>
+<p>  发送：</p>
+<p>  阻塞：当发送缓冲区不足够大的时候，阻塞发送就是等到空间足够大再发送</p>
+<p>  非阻塞：有多少空间发多少数据，剩余数据程序自己处理</p>
+<p>  选择使用哪种模式取决于以下因素：</p>
+<ul>
+<li>是否能接受短暂的延迟：阻塞I&#x2F;O 对于短期等待可能是合适的。</li>
+<li>并发性能：如果应用需要处理大量并发连接，非阻塞I&#x2F;O 可以提高效率。</li>
+<li>程序复杂性：非阻塞I&#x2F;O 需要更多的错误处理和事件驱动编程技巧。</li>
+</ul>
+</li>
+<li><p>发送和接收缓冲区</p>
+<p>  在共同使用（!&#x3D;）随意使用的内核空间中；一个socket分成接收缓冲区和发送缓冲区，在代码里实现的recvBuf和sendBuf是在用户空间分配的。当操作系统接收数据后，则会将数据写入接收缓冲区，当调用recvFrom函数后则是将接收缓冲区里的数据拷贝到用户空间的recvBuf里面，所以阻塞实际上是接收缓冲区没有数据，recvBuf在等待数据的传输。同理，发送数据就是sendBuf将数据传输到发送缓冲区，然后由操作系统负责向外传输。</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-14_203552.png" alt="屏幕截图 2024-06-14 203552.png"></p>
+<p>  打印发送缓冲区和接收缓冲区的大小getsocketopt()；65536&#x3D;64*1024字节，即64KB，就是说一次发送的大小不能超过64KB，若超过了，剩下的数据无法显示，即数据丢失。实际上，并没有64KB大，因为传输层中，有MSS限制传输数据的大小，所以，为了传输数据加快，不要发送过大数据。</p>
+</li>
+<li><p>内存分配</p>
+<p>  进程4G虚拟内存，4GB的虚拟内存并不是说实际可用的物理内存就是4GB，而是指进程能够使用的最大地址空间。当进程运行时，操作系统会动态地管理这些内存，将常用的部分加载到物理内存，不常用的则保留在磁盘的交换空间。这种虚拟内存机制使得进程可以在需要时扩展其可用的内存，超出物理内存的限制。是由物理内存映射到磁盘得来的虚拟内存</p>
+<p>  （1）大小的虚拟（2）地址的虚拟</p>
+<p>  虚拟内存空间分为0<del>2G，2</del>4G；0<del>2G属于用户空间，对于操作系统而言，用户就是进程，故这部分虚拟内存单独给进程使用，进程单独使用，相互不能乱访问。2</del>4G属于内核空间，共同使用。</p>
+</li>
+<li><p>TCP协议的连接服务器</p>
+<p>  inet_pton()将网络地址转换，connnect返回是int值，如果用socket去接收返回值，系统会报错：在一个非法的套接字上进行发送数据，能接收成功的原因是socket本质上是UINT_PTR经过typedef来的，所以应该定义一个新的int变量接收connet的返回值。</p>
+<p>  错误码分类：INVALID_SOCKET和SOCKET_ERR，只有创建socket时使用了INVALID_SOCKET，其他函数基本报错误码时是SOCKET_ERR，SOCKET_ERR本质上是-1的宏定义，而INVALID_SOCKET则是(~0)的宏定义。</p>
+<p>  连接失败时报错地址无效，不是IP地址写错了，是IP地址格式错误（例如多加空格），</p>
+<p>  发送数据溢出内存：后面发送数据得完全覆盖前面数据，即每次发送数据得是整个空间（例2048）的大小。不能是每次发送一个字符串的大小，如果需要每次发送一个字符串大小，那么每次发送完需要清理发送空间，将上一次数据清理</p>
+</li>
+<li><p>为什么TCP协议可靠</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_09.09.43.png" alt="截屏2024-06-17 09.09.43.png"></p>
+<p>  复习：UDP协议头&#x3D;<strong>源端口(Source port)+目的端口(Destination port)+数据长度(Data length)+校验和(Checksum)+UDP头部</strong></p>
+<p>  TCP&#x3D;<strong>源端口号（Source Port）和目的端口号（Destination Port)+序号（Sequence Number, Seq)+确认号（Acknowledgment Number, Ack）+数据偏移（Data Offset）+ 标志（Flags）+窗口（Window）+校验和（Checksum）+ 紧急指针（Urgent Pointer）+可选项（Options）+填充（Padding）</strong></p>
+<ul>
+<li>TCP头<ol>
+<li><strong>源端口号（Source Port）和目的端口号（Destination Port）</strong>：每个连接都有唯一的源和目的端口号，用于标识发送和接收数据的应用进程。</li>
+<li><strong>序号（Sequence Number, Seq）</strong>：用于标识数据包的顺序，接收者会根据序列号确认数据是否完整。触发按顺序触发，到达后按顺序排号，保证不乱序 </li>
+<li><strong>确认号（Acknowledgment Number, Ack）</strong>：接收者回应的下一个期望接收到的序列号，用于确认已成功接收的数据段。一个序号对应一个确认号，没回复确认号则代表数据未收到。</li>
+<li><strong>数据偏移（Data Offset）</strong>：指示头部长度，以32位字为单位计算的，包含了标志、窗口、校验和等字段的位置。（确保）</li>
+<li><strong>标志（Flags）</strong>：包括URG（紧急指针），ACK（确认），PSH（推动），RST（重置连接）前提是已经连接过，SYN（同步序列号用于建立连接），FIN（结束连接）。每个标志位占一个二进制位，1代表启用，0代表关闭，使用紧急指针功能需标志URG为1</li>
+<li><strong>窗口（Window）</strong>：用于流量控制，通知发送方接收缓冲区剩余空间。 </li>
+<li><strong>校验和（Checksum）</strong>：对头部进行校验，保证数据的正确性。</li>
+<li><strong>紧急指针（Urgent Pointer）</strong>：如果存在紧急数据，则包含在此，指示紧急数据的起始位置。</li>
+<li><strong>可选项（Options）</strong>：早期版本的TCP，可能包含一些可选的扩展信息，但现代TCP很少使用。</li>
+<li><strong>填充（Padding）</strong>：如果头部长度不是整数倍的4字节，填充为0。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>ACK机制</p>
+<p>  如图，数据(序号&#x3D;1…100)从客户端发送到服务端，服务端标志确认码ACK为1，发送ack&#x3D;101，然后客户端继续发数据(序号&#x3D;101…200)，服务端标志确认码ACK为1，发送ack&#x3D;201。</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_10.19.17.png" alt="截屏2024-06-17 10.19.17.png"></p>
+</li>
+<li><p>产生丢包问题启用超时重传</p>
+<ul>
+<li>发送中丢包<ul>
+<li>发送方设置一个超时计时器：当数据包被发送出去后，计时器开始计时。超时时间从发送数据后开始，接收数据时结束。</li>
+<li>等待确认：如果在超时时间内收到确认，计时器会被重置。如果没有收到确认，超时计时器到期。</li>
+<li>当超时计时器超时，发送方会重新发送之前的数据包。这会继续重复，直到接收到确认或者达到最大重传次数</li>
+</ul>
+</li>
+<li>接收中丢包<ul>
+<li>发送数据成功，但是在发送ACK确认阶段丢失，继续重复发送，直到接收到确认或者达到最大重传次数。重复收到的包丢弃，但是仍然会把ACK发送。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>TCP传输控制协议（三次握手）</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_10.52.55.png" alt="截屏2024-06-17 10.52.55.png"></p>
+<ul>
+<li>最初，客户端和服务端都处于CLOSE状态，先是服务端主动监听端口，处于LISTEN状态</li>
+<li>然后客户端标志SYN(第一次握手)置1位，建立连接connect阻塞函数，发送序号seq&#x3D;x，之后处于发送SYN-SEND状态</li>
+<li>服务端通过accpet阻塞函数收到发起的连接，返回SYN和ACK（第二次握手），发送序号seq&#x3D;y并且ack&#x3D;x+1客户端的SYN，之后处于SYN-RCVD状态，</li>
+<li>客户端connect返回收到服务端发送的SYN和ACK之后，发送ACK的ACK(第三次握手)，之后处于ESTABLISHED状态，因为他一发一收成功了，发送序号seq&#x3D;x+1，ack&#x3D;y+1。</li>
+<li>服务端accept返回收到ACK的ACK之后，处于ESTABLISHED状态，因为它也一发一收了。</li>
+</ul>
+<p>  问题与思考：</p>
+<p>  1.为什么三次握手的次数是三次：</p>
+<ul>
+<li>防止“半开”连接：第一次握手后，如果服务器没有回应，客户端可能会认为连接已经建立，但服务器可能没有收到，这样会造成资源浪费。三次握手确保双方都确认收到了对方的请求。</li>
+<li>顺序确认：第二次握手中服务器回应的是SYN+ACK，这意味着服务器不仅确认了收到，还准备好了接收，防止了客户端立即发送数据导致的数据混乱。</li>
+</ul>
+<ol>
+<li>整个详细流程的复述</li>
+</ol>
+</li>
+<li><p>四次挥手（断开连接）</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.18.53.png" alt="截屏2024-06-17 13.18.53.png"></p>
+<ul>
+<li>主动方打算关闭连接，此时会发送一个TCP首部FIN（第一次挥手）标志位被置为1的，状态转为FIN_WAIT_1，序号seq&#x3D;u,ack&#x3D;v+1。</li>
+<li>被动方收到该报文（第二次挥手）后，就向主动方发送ACK应答报文，接着被动方进入CLOSED_WAIT状态，序号seq&#x3D;v+1,ack&#x3D;u+1，</li>
+<li>主动方收到被动方的ACK应答报文之后，之后进入FIN_WAIT_2状态</li>
+<li>等待被动方处理完数据后，也向主动方发送FIN（第三次挥手）报文，之后被动方进入LAST_ACK状态，确认数据处理完再发FIN，序号seq&#x3D;v+2，ack&#x3D;u+1，发送ACK确认</li>
+<li>主动方收到被动方的FIN报文（第四次挥手）后，回一个ACK应答报文，之后进入TIME_WAIT状态，序号seq&#x3D;u+1，ack&#x3D;v+3，</li>
+<li>被动方收到了ACK应答报文后，就进入了CLOSED状态，至此被动方已经完成连接的关系</li>
+<li>主动方在经过2MSL一段时间后，自动进入CLOSED状态，至此主动方也完成连接的关闭(如果被动方又发了个FIN说明ACK丢包，反之什么信息都没有发送没有丢失)2MSL：两个最大段生存时间（主动方的ACK过去以及等待下一个FIN来的时间段）如果在这个时间段里，被动方又发了个FIN，主动方发回ACK，则2MSL重新计时</li>
+</ul>
+<p>  问题与思考：</p>
+<ol>
+<li>四次挥手详细流程的复述(seq和ack值的变化，双方状态的变化，流程的讲解)</li>
+<li>为什么被动方在收FIN后没有立刻回复FIN的到来：因为此时被动方的数据还没处理完，要等数据处理完后再给主动方发送数据FIN确认ACK</li>
+<li>主动方在发完ACK后要等待2MSL再关闭：等2MSL是为了确定自己的ACK有没有丢失，如果在2MSL时间内又收到了FIN，那么就需要主动方重新发送ACK确认，如果在2MSL时间内，被动方没有发送FIN，说明主动方的ACK并未丢失，没有出发超时重传</li>
+</ol>
+</li>
+<li><p>往返时延</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.18.13.png" alt="截屏2024-06-17 13.18.13.png"></p>
+<p>  这个过程通常包括发送数据、在网络中传输、接收确认以及可能的网络拥塞控制。RTT是衡量网络延迟和响应时间的重要指标，特别是在实时应用如语音通话（交流是否流畅）、视频会议（音画同步）和在线游戏(游戏里的延迟)等中，较低的RTT意味着更流畅的交互。</p>
+<p>  链路的传播时间即信号在光缆传播的时间（物理实体）</p>
+<p>  末端系统的处理时间（设备处理数据的时间）</p>
+<p>  路由器的缓存中的排队和处理时间（硬件设备以及网络数据的丢失或拥堵）</p>
+<ul>
+<li><p>影响RTT的因素</p>
+<ol>
+<li>网络距离：数据传输经过的物理链路长度会直接影响RTT。</li>
+<li>网络带宽：高带宽可以减少数据传输时间，但不一定能减小RTT。</li>
+<li>网络设备和节点：路由器、交换机的处理能力、队列深度等都会影响RTT。</li>
+<li>丢包和拥塞：网络中的数据丢失或拥塞可能导致RTT增加。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>超时重传时间</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.25.32.png" alt="截屏2024-06-17 13.25.32.png"></p>
+<ol>
+<li>设置初始超时时间：通常根据网络状况和数据包大小设置一个合理的初始值。</li>
+<li>超时等待：发送方等待预定的超时时间。</li>
+<li>检查接收确认：如果在这段时间内接收到接收方的确认，说明数据包已经成功抵达，无需重传。</li>
+<li>超时后重传：如果没有收到确认，计时器超时后，数据包会再次被发送。</li>
+<li>重传次数限制：为了避免无限次的无效重传，网络协议通常设定重传的最大次数，超过这个次数还未收到确认，发送方会放弃这次传输，并可能采取其他错误处理措施。</li>
+</ol>
+</li>
+<li><p>TCP流量控制—滑动窗口</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.35.20.png" alt="截屏2024-06-17 13.35.20.png"></p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.40.18.png" alt="截屏2024-06-17 13.40.18.png"></p>
+<ol>
+<li><p><strong>滑动窗口的工作原理</strong>：滑动窗口是一个接收方维护的、可以动态调整的接收缓冲区大小的抽象窗口。窗口的大小表示接收方可以同时接收的数据量，而不是一次性的数据块。发送方根据接收方窗口的大小发送数据，接收方接收到数据后会向发送方回送确认信息，同时更新窗口大小。发几个回一次大小的具体数值由窗口决定</p>
+<p> <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.36.40.png" alt="截屏2024-06-17 13.36.40.png"></p>
+</li>
+<li><p><strong>发送方操作</strong>：当发送方收到接收方的确认（ACK）时，它可以在已发送但未收到确认的数据之外继续发送更多数据，只要这些数据不会超出接收方的当前滑动窗口。如果窗口减少，发送方就会暂停或减慢发送速度。</p>
+</li>
+<li><p><strong>接收方操作</strong>：当接收方无法处理更多数据时，它会通过ACK消息告知发送方将窗口大小减小，或者直接丢弃过期的数据包。这样发送方就会相应地调整发送速率，直到窗口增大。</p>
+</li>
+<li><p><strong>流量控制和拥塞控制</strong>：滑动窗口也涉及拥塞控制，因为当网络拥塞时，接收方可能会设置一个更小的窗口来防止更多的数据积压。发送方会感知到这种变化，并降低发送速率，直到网络状况改善。</p>
+<p> <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.42.01.png" alt="截屏2024-06-17 13.42.01.png"></p>
+</li>
+<li><p>通过ACK的数值说明接收方收到包的具体数值：如ack&#x3D;40，则则之前的都发完了，下一次从数值后的包开始发送</p>
+</li>
+<li><p>如图蓝框中显示的窗口大小共有20，一次可以发送20个包过来，发送过程中，不用发ACK，发完后，回ACK。</p>
+<p> <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.47.30.png" alt="截屏2024-06-17 13.47.30.png"></p>
+<p> <img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20e5f18fd72277412abf916feb6a05e855/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.50.01.png" alt="截屏2024-06-17 13.50.01.png"></p>
+<p> <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.52.00.png" alt="截屏2024-06-17 13.52.00.png"></p>
+<p> <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.52.44.png" alt="截屏2024-06-17 13.52.44.png"></p>
+</li>
+</ol>
+</li>
+<li><p>粘包问题</p>
+<p>  UDP是基于段文报传输的，就不会粘包，TCP是基于字节传输的，如同流水，数据就会粘在一起</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E6%2588%25AA%25E5%25B1%258F2024-06-17_13.57.48.png" alt="截屏2024-06-17 13.57.48.png"></p>
+<ol>
+<li>设置标记位：在包的开始结束设置特定标记；标记为可能与实际数据混淆，错误的分割，可能与开始和结束标志位重复(场景：游戏中发送技能)</li>
+</ol>
+<ul>
+<li><p>设置标记位</p>
+<p>  <strong>优点：</strong></p>
+<ol>
+<li><strong>明确边界</strong>: 设置标记位可以在数据序列中明确地指出数据段的开始和结束，帮助接收端正确识别完整的数据包。</li>
+<li><strong>错误检测</strong>: 标记位通常与数据一起发送，当接收端发现标记位与数据不匹配时，可以判断可能存在粘包并重新请求丢失的部分。</li>
+<li><strong>简化协议</strong>: 对于简单协议，设置固定长度的标记位可以减少协议的复杂性，提高实现的可读性和维护性。</li>
+</ol>
+<p>  <strong>缺点：</strong></p>
+<ol>
+<li><strong>额外开销</strong>: 每个数据包都需要一个额外的标记位，增加了网络传输的开销，尤其是在大数据量传输时。</li>
+<li><strong>潜在冲突</strong>: 如果多个数据包同时到达，标记位可能会与实际数据混淆，需要精确的时间同步和处理策略。</li>
+<li><strong>编码复杂性</strong>: 对于自定义协议或者已有协议的扩展，实现和解析带有标记位的数据可能增加编码和解析的复杂性。</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>固定包大小： 按照固定包大小传输；容易浪费空间和资源，包的大小取决于数据最大的那个（场景：传输文件）</li>
+</ol>
+<ul>
+<li><p>固定包大小</p>
+<p>  <strong>优点：</strong></p>
+<ol>
+<li><strong>易于解析和处理</strong>：固定包大小使得接收端能够预先知道每个数据块的边界，从而更方便地解析和缓冲数据，避免了逐字节读取的开销。</li>
+<li><strong>性能优化</strong>：预先设定的包大小可以帮助网络协议栈进行有效的缓存管理，减少不必要的往返次数，提升整体通信效率。</li>
+<li><strong>稳定性</strong>：对于许多应用来说，如实时通信、流媒体等，固定的包大小有助于保证数据的即时性和一致性，减少延迟和抖动。</li>
+</ol>
+<p>  <strong>缺点：</strong></p>
+<ol>
+<li><strong>浪费带宽</strong>：如果数据量小于预设的包大小，这可能导致部分包中的数据未被完全利用，造成带宽浪费。</li>
+<li><strong>灵活性降低</strong>：固定的包大小可能无法适应所有数据的大小变化，例如大数据块或突发流量，可能会导致包溢出或包头丢失。</li>
+<li><strong>可能导致数据丢失</strong>：在网络条件不稳定或高延迟的情况下，如果包大小设置得过小，可能会出现部分包未成功接收，造成数据丢失。</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>先发数据长度，再发数据包：先说明包大小，再根据包大小发送数据包；数据传输速度慢，每次发送多个包（场景：用户输入数据）</li>
+</ol>
+<ul>
+<li><p>先发数据长度，再发数据包</p>
+<p>  这样接收方可以根据这个长度来正确解析接收到的数据。发送时，数据会被分割成多个小的数据包，并在每个数据包的开始处添加长度信息；接收时，会先读取长度字段，然后根据该长度读取对应长度的数据，直到读完整个预期长度的数据。</p>
+</li>
+</ul>
+<ol>
+<li>短连接：先连接，发送包，断开连接，再对下一个包进行连接和发送：浪费时间也浪费资源（场景：比较适用浏览器）</li>
+</ol>
+<ul>
+<li><p>短连接</p>
+<p>  短连接通常指的是客户端和服务器之间的会话在发送完请求或响应后就立即关闭，不维持持久连接。<br>  例如，HTTP协议中的GET或POST请求就是典型的短连接。如果数据量较大，但协议规定一次只能发送一部分数据（如HTTP头部后跟一个空行），那么服务器发送的数据可能会超出一次接收缓冲区的容量，导致客户端接收到的数据不是完整的报文。这时，客户端需要额外处理，通过判断剩余数据是否在下一次接收中继续，或者根据特定的分隔标识（比如换行符）重新组合数据，这就是粘包处理。</p>
+</li>
+</ul>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span> n1;<span class="comment">//包的数据不固定，将数据整合成包发送</span></span><br><span class="line"><span class="type">int</span> nSize = <span class="built_in">sizeof</span>(n1);</span><br><span class="line"><span class="comment">//发送</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">send</span>(sockClient,(<span class="type">char</span>*)&amp;nSize,<span class="built_in">sizeof</span>(<span class="type">int</span>),<span class="number">0</span>);<span class="comment">//先发包大小</span></span><br><span class="line"><span class="built_in">send</span>(sockClient,(<span class="type">char</span>*)&amp;n1,<span class="built_in">sizeof</span>(n1),<span class="number">0</span>);<span class="comment">//先发数据包</span></span><br><span class="line"><span class="comment">//接收int nPackSize = 0;</span></span><br><span class="line"><span class="built_in">recv</span>(sockClient,(<span class="type">char</span>*)&amp;nPackSize,<span class="built_in">sizeof</span>(<span class="type">int</span>),<span class="number">0</span>);<span class="comment">//先接收包大小</span></span><br><span class="line"><span class="type">char</span>* buf = <span class="keyword">new</span> <span class="type">char</span>[nPackSize];</span><br><span class="line"><span class="built_in">recv</span>(sockClient,buf,nPackSize,<span class="number">0</span>);<span class="comment">//再接收包</span></span><br><span class="line"><span class="keyword">delete</span>[]buf;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>心跳机制 &#x2F; TCP保活机制</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-17_160602.png" alt="屏幕截图 2024-06-17 160602.png"></p>
+<p>  客户端和服务端判断双方是否在线（场景：微信），例如防火墙会把一段时间没上线的链接断开，自己实现的心跳包（好处：灵活自主方便）使用SO_KEEYPLALIVE套接字（别人做好的，但是不自主，依照别人设定好的流程写）</p>
+<p>  参考：<br>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/ComplexMaze/article/details/124201088">TCP保活机制（KeepAlive）_tcp keepalive-CSDN博客</a></p>
+<p>  如果两端的 TCP 连接一直没有数据交互，达到了触发 TCP 保活机制的条件，那么内核里的 TCP 协议栈就会发送探测报文。</p>
+<ul>
+<li>如果对端程序是<strong>正常工作</strong>的。当 TCP 保活的探测报文发送给对端, 对端会正常响应，这样 <strong>TCP 保活时间会被重置</strong>，等待下一个 TCP 保活时间的到来。</li>
+<li>如果<strong>对端主机崩溃</strong>，或<strong>对端由于其他原因导致报文不可达</strong>。当 TCP 保活的探测报文发送给对端后，石沉大海，没有响应，连续几次，达到保活探测次数后，TCP 会报告该 <strong>TCP 连接已经死亡。</strong></li>
+</ul>
+<p>  所以，TCP 保活机制可以在双方没有数据交互的情况，通过探测报文，来确定对方的 TCP 连接是否存活。</p>
+<ul>
+<li><p>TCP保活相关参数如下：</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SO_KEEPALIVE：是否开启保活</span><br><span class="line"></span><br><span class="line">TCP_KEEPIDLE：Start keeplives after <span class="keyword">this</span> period</span><br><span class="line"></span><br><span class="line">TCP_KEEPINTVL：Interval between keepalives</span><br><span class="line"></span><br><span class="line">TCP_KEEPCNT：Number of keepalives before death</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保活机制示例：</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;errno.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;winsock2.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;winsock.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;minwindef.h&gt;</span></span></span><br><span class="line"><span class="comment">//#include &lt;netinet/tcp.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ws2ipdef.h&gt;</span></span></span><br><span class="line"><span class="comment">// #include &lt;sys/wait.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> comment(lib, <span class="string">&quot;Ws2_32.lib&quot;</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PORT     (2333)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_DATA (100) <span class="comment">/*接收道德数据最大程度*/</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BACKLOG 5</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _DEF_VERSION_HIBYTE (2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _DEF_VERSION_LOBYTE (2)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*加载库*/</span></span><br><span class="line"></span><br><span class="line">    DWORD version = <span class="built_in">MAKEWORD</span>(_DEF_VERSION_HIBYTE, _DEF_VERSION_LOBYTE);</span><br><span class="line">    WSAData data = &#123;&#125;;</span><br><span class="line">    <span class="type">int</span> err = <span class="built_in">WSAStartup</span>(version, &amp;data);</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> != err) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;WSAStartup fail&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">HIBYTE</span>(data.wVersion) != _DEF_VERSION_HIBYTE</span><br><span class="line">        || <span class="built_in">LOBYTE</span>(data.wVersion) != _DEF_VERSION_LOBYTE) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;WSAStartup version fail&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;WSAStartup version success&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    SOCKET sockfd, new_fd; <span class="comment">/*sockert句柄和建立连接后的句柄*/</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">sockaddr_in</span> my_addr</span><br><span class="line">    &#123;</span><br><span class="line">    &#125;; <span class="comment">/*本方地址信息结构体，下面有具体的属性赋值*/</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">sockaddr_in</span> their_addr</span><br><span class="line">    &#123;</span><br><span class="line">    &#125;; <span class="comment">/*对方地址信息*/</span></span><br><span class="line">    <span class="type">int</span> sin_size;</span><br><span class="line">    <span class="type">char</span> buf[MAX_DATA];<span class="comment">//储存接收数据</span></span><br><span class="line"></span><br><span class="line">    sockfd = <span class="built_in">socket</span>(PF_INET, SOCK_STREAM, <span class="number">0</span>);<span class="comment">// 建立socket</span></span><br><span class="line">    <span class="keyword">if</span> (sockfd == <span class="number">-1</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;socket failed&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    my_addr.sin_family = PF_INET; <span class="comment">/*该属性表示接收本机或其他机器传输*/</span></span><br><span class="line">    my_addr.sin_port = <span class="built_in">htons</span>(PORT); <span class="comment">/*端口*/</span></span><br><span class="line">    my_addr.sin_addr.S_un.S_addr = <span class="built_in">htonl</span>(INADDR_ANY); <span class="comment">/*IP，本机IP*/</span></span><br><span class="line">    <span class="built_in">memset</span>(my_addr.sin_zero, <span class="number">0</span>, <span class="built_in">sizeof</span>(my_addr.sin_zero)); <span class="comment">/*置0*/</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">bind</span>(sockfd, (sockaddr*)&amp;my_addr, <span class="built_in">sizeof</span>(sockaddr)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 绑定地址结构体和socket</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;bind error&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">listen</span>(sockfd, BACKLOG); <span class="comment">//开启监听，第二个参数是最大监听数</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        sin_size = <span class="built_in">sizeof</span>(sockaddr_in);</span><br><span class="line">        new_fd = <span class="built_in">accept</span>(sockfd, (sockaddr*)&amp;their_addr, &amp;sin_size);</span><br><span class="line">        <span class="comment">// 在这里阻塞知道接收到信息，参数分别是sock句柄、接收到的信息、以及大小</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//开启保活、一分钟内探测不到、断开连接</span></span><br><span class="line">        <span class="type">int</span> keep_alive = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> keep_idle = <span class="number">3</span>;</span><br><span class="line">        <span class="type">int</span> keep_interval = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> keep_count = <span class="number">57</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">setsockopt</span>(new_fd, SOL_SOCKET, SO_KEEPALIVE, (<span class="type">char</span>*)&amp;keep_alive, <span class="built_in">sizeof</span>(keep_alive))) &#123;</span><br><span class="line">            <span class="built_in">perror</span>(<span class="string">&quot;Error setsockopt(SO_KEEPALIVE) failed&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">setsockopt</span>(new_fd, IPPROTO_TCP, TCP_KEEPIDLE, (<span class="type">char</span>*)&amp;keep_idle, <span class="built_in">sizeof</span>(keep_idle))) &#123;</span><br><span class="line">            <span class="built_in">perror</span>(<span class="string">&quot;Error setsockopt(TCP_KEEPIDLE) failed&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">setsockopt</span>(new_fd, IPPROTO_TCP, TCP_KEEPINTVL, (<span class="type">char</span>*)&amp;keep_interval,</span><br><span class="line">            <span class="built_in">sizeof</span>(keep_interval))) &#123;</span><br><span class="line">            <span class="built_in">perror</span>(<span class="string">&quot;Error setsockopt(TCP_KEEPINTVL) failed&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">setsockopt</span>(new_fd, IPPROTO_TCP, TCP_KEEPCNT, (<span class="type">char</span>*)&amp;keep_count, <span class="built_in">sizeof</span>(keep_count))) &#123;</span><br><span class="line">            <span class="built_in">perror</span>(<span class="string">&quot;Error setsockopt(TCP_KEEPCNT) failed&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (new_fd != <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="built_in">recv</span>(new_fd, buf, MAX_DATA, <span class="number">0</span>);</span><br><span class="line">            <span class="comment">// 将接收数据打入buf，参数分别是句柄、储存处、最大长度、0</span></span><br><span class="line"></span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;buf:&quot;</span> &lt;&lt; buf &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>  上述保活参数（int keep_alive &#x3D; 1;int keep_idle &#x3D; 3;int keep_interval &#x3D; 1;int keep_count &#x3D; 57;）表示3秒内无交互后，每隔1秒检测一次，57次都没得到响应时会断开连接。</p>
+</li>
+<li><p>Nagle算法</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-17_213001.png" alt="屏幕截图 2024-06-17 213001.png"></p>
+<p>  原因：数据在网络传输时，网络并不并不关心数据大小，对于路由器来说大数据统一传输与小数据包多数传输对比而言，</p>
+<p>  作用：前者消耗资源与空间更少，所以优先采用前者的传输方式，所以需要避免小数据块的传输，而小数据块传输对于用户而言就是网卡了。</p>
+<p>  算法规则：</p>
+<p>  规则3实际上就是关闭Nagle算法，想怎么发就怎么发</p>
+<p>  规则4则是允许了在使用Nagle算法的前提下发送经过确认的小数据包（说明网络情况良好，不易拥堵）</p>
+<p>  规则5保证了在发生超时的情况下打Nagle算法迅速传输数据，避免进一步拥堵</p>
+</li>
+<li><p>拥塞控制</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-17_214302.png" alt="屏幕截图 2024-06-17 214302.png"></p>
+<p>  拥塞控制现象：把数据类比洪水，当河流漫过堤坝，就出现了洪水，在洪水泛滥时，如果不及时的修堤坝，洪水就会冲倒更多的堤坝，与后来的河流汇集，情况就会越来越严重。</p>
+<p>  TCP协议的四种算法</p>
+</li>
+</ul>
+<p>算法通过控制窗口的大小从而控制数据传输速度</p>
+<p><img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-17_214342.png" alt="屏幕截图 2024-06-17 214342.png"></p>
+<ul>
+<li><p>慢开始与拥塞避免</p>
+<ul>
+<li><p>慢点开始，逐渐增大拥塞窗口大小，并同时使用ssthresh状态变量防止拥塞窗口增长过大造成网络拥塞</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-17_214839.png" alt="屏幕截图 2024-06-17 214839.png"></p>
+</li>
+<li><p>最初使用慢开始算法，ssthresh成倍增长增长到与拥塞避免值相同后，使用拥塞避免算法线性增长，然后窗口先掉为1，再继续循环开始算法，拥塞避免算法，期间不停更新ssthresh值</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-17_215310.png" alt="屏幕截图 2024-06-17 215310.png"></p>
+</li>
+</ul>
+</li>
+<li><p>快重传</p>
+<p>  当接收方收到M1，M2，M4，并未对M3进行确认，此时则认为M3丢失，然后通过给发送方发送三个连续的对M2的重复确认ACK，那么发送方立刻重传M3。</p>
+<p>  这一段时间是要比超时重传短的，所以叫做快重传</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-17_215927.png" alt="屏幕截图 2024-06-17 215927.png"></p>
+</li>
+<li><p>快恢复</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-17_220736.png" alt="屏幕截图 2024-06-17 220736.png"></p>
+<p>  首先从收到三个重复的ACK，触发快速重传机制，然后启用慢开始算法，将cwnd变为原来的一半，ssthresh &#x3D; cwnd，然后快恢复窗口cwnd变为ssthresh（慢开始）+3，然后又开始拥塞避免了。</p>
+</li>
+<li><p>TCP协议总结</p>
+<p>  对比UDP非连接，高效率，低可靠性的，基于报文段的传输方式。</p>
+<p>  为什么TCP是可靠的？</p>
+<p>  <strong>2个机制2种数据传输逻辑2个窗口对应的解决方案</strong></p>
+<p>  TCP可以发广播吗？</p>
+<p>  <strong>一对一传输。理论上不能发广播</strong></p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-17_221356.png" alt="屏幕截图 2024-06-17 221356.png"></p>
+<p>  问题与思考</p>
+<p>  在传输层使用TCP机制：使用按顺序储存的队列，运用计时器按时返回ACK保证数据传输可靠，并且加入超时重传机制</p>
+<p>  TCP发广播：并发多线程实现</p>
+<p>  三次握手时能不能发送数据：能，在第三次挥手时，客户端只发送了个ACK</p>
+<p>  四次挥手时能不能发送数据：对于主动方来说。只有第一次，对于被动方带了FIN的包都能带数据，包括发送FIN在内之前的包都能带数据</p>
+<p>  如果四次挥手的过程中主动方发送ACK后，ACK丢失，则被动方发送FIN也同样丢失，被动方能否关闭：被动方会多次发送ACK后自动关闭（自闭）这一段时间是漫长的，会浪费时间与资源</p>
+</li>
+</ul>
+<p>在使用void*强转地址时，需要正确的强转(格式要正确)，当强转失败时，会报这个错误</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0x794CECC1</span> (Qt5Cored.dll)处(位于 xxx.exe 中)引发的异常: <span class="number">0xC0000005</span>: 读取位置 <span class="number">0x0000003F</span> 时发生访问冲突。</span><br><span class="line">处未处理的异常: <span class="number">0xC0000005</span>: 读取位置 <span class="number">0x00000000</span>时发生访问冲突</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-19_214245.png" alt="屏幕截图 2024-06-19 214245.png"></p>
+<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20e5f18fd72277412abf916feb6a05e855/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-19_214312.png" alt="屏幕截图 2024-06-19 214312.png"></p>
+<p>注意区分二者区别，其他类型转换也是同样的道理</p>
+<p><img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-20_170336.png" alt="屏幕截图 2024-06-20 170336.png"></p>
+<p>线程函数的参数传入是this指针：对该指针进行初始化，直接使用this指向该类</p>
+<ul>
+<li><p>ip地址与网络地址互转</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ws2tcpip.h<span class="comment">//头文件</span></span><br><span class="line"><span class="type">char</span> ip[<span class="number">20</span>] = <span class="string">&quot;192.168.0.74&quot;</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">addr_in</span> to;</span><br><span class="line">sockaddr_in _sin = &#123;&#125;;</span><br><span class="line"><span class="type">int</span> size = <span class="built_in">sizeof</span>(ip);</span><br><span class="line"><span class="comment">/*inet_pton()用于将 Internet 网络地址转换为数字二进制形式*/</span></span><br><span class="line"><span class="built_in">inet_pton</span>(AF_INET, &amp;_sin.sin_addr, ip, (<span class="type">void</span>*)&amp;to);</span><br><span class="line"><span class="comment">/*inet_ntop()用于将数字二进制形式转换为 Internet 网络地址*/</span></span><br><span class="line"><span class="built_in">inet_ntop</span>(AF_INET,,ip,size);</span><br><span class="line"><span class="comment">//若无错误，inet_ntop()函数返回一个指向缓冲区的指针,</span></span><br><span class="line"><span class="comment">//该缓冲区包含标准格式的IP地址的字符串表示形式</span></span><br><span class="line"><span class="comment">//否则返回NULL</span></span><br><span class="line"><span class="comment">//获取错误码WSAGetLastError()</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">INT WSAAPI inet_pton(</span></span><br><span class="line"><span class="comment">  [in]  INT   Family,</span></span><br><span class="line"><span class="comment">  [in]  PCSTR pszAddrString,</span></span><br><span class="line"><span class="comment">  [out] PVOID pAddrBuf</span></span><br><span class="line"><span class="comment">);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">PCSTR WSAAPI inet_ntop(</span></span><br><span class="line"><span class="comment">  [in]  INT        Family,</span></span><br><span class="line"><span class="comment">  [in]  const VOID *pAddr,</span></span><br><span class="line"><span class="comment">  [out] PSTR       pStringBuf,</span></span><br><span class="line"><span class="comment">  [in]  size_t     StringBufSize</span></span><br><span class="line"><span class="comment">);</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>TCP协议接收数据函数读取数据过大解决方案</p>
+<p>  <img src="/../%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%E8%AE%A1%E7%BD%91%E5%9B%BE%E7%89%87/%25E5%25B1%258F%25E5%25B9%2595%25E6%2588%25AA%25E5%259B%25BE_2024-06-20_195725.png" alt="屏幕截图 2024-06-20 195725.png"></p>
+<p>  由于TCP协议在读取容量过大的数据时，会拆分成多段，这时候对多个传输过来的数据而言，定义while循环，判断每个接受包内容是否大于0，从而判断是否接收完成；</p>
+<p>  对一个包而言，则是通过已知pack始终指向包的起始位置，nRecvFrom为每次接收包的长度，从而定义变量packSize为一次往后读取的包大小，offset为偏移量，从而得出公式：</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">packSize -= nRecvFrom；</span><br><span class="line">offset += nRecvFrom； </span><br></pre></td></tr></table></figure>
+<p>  含义是一个包数据拆分成多个段，recv每次读取一段，pack通过+offset的偏移每次指向该段的开头，而packSize每次随着段数的减少递减</p>
+</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">heguang123456</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/10/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20/">http://example.com/2024/10/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/android-chrome-512x512.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="next-post pull-full" href="/2024/09/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5/" title="数据库系统概论"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">数据库系统概论</div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src="/img/android-chrome-512x512.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">heguang123456</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="toc-number">1.</span> <span class="toc-text">计算机网络</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20/" title="Untitled">Untitled</a><time datetime="2024-10-09T02:13:08.532Z" title="Created 2024-10-09 10:13:08">2024-10-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5/" title="数据库系统概论">数据库系统概论</a><time datetime="2024-09-27T06:56:06.000Z" title="Created 2024-09-27 14:56:06">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="计算机组成原理">计算机组成原理</a><time datetime="2024-09-26T22:11:58.000Z" title="Created 2024-09-27 06:11:58">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/part1/" title="测试文章">测试文章</a><time datetime="2024-09-24T02:30:41.398Z" title="Created 2024-09-24 10:30:41">2024-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/%E5%8D%9A%E5%AE%A2%E7%BB%B4%E6%8A%A4/" title="博客维护">博客维护</a><time datetime="2024-09-24T02:25:35.298Z" title="Created 2024-09-24 10:25:35">2024-09-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By heguang123456</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
